@@ -12,12 +12,12 @@
     "freebsd": "electron-builder --linux freebsd",
     "appimage": "electron-builder --linux AppImage"
   },
-  "author": [
+  "author": {
     "name":"作者",
     "email":"some@example.com"
-  ],"license": "许可证",
+  },"license": "许可证",
   "devDependencies": {
-    "electron": "^24.3.0",
-    "electron-builder": "^23.6.0"
+    "electron": "^25.2.0",
+    "electron-builder": "^24.4.0"
   }
 }
