@@ -1,24 +1,23 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": "描述",
-  "main": "src/main.js",
-  "scripts": {
-    "start": "electron .",
-    "xz": "electron-builder --linux tar.xz",
-    "deb": "electron-builder --linux deb",
-    "rpm": "electron-builder --linux rpm",
-    "snap": "electron-builder --linux snap",
-    "freebsd": "electron-builder --linux freebsd",
-    "appimage": "electron-builder --linux AppImage"
-  },
-  "author": {
-    "name": "作者",
-    "email": "some@example.com"
-  },
-  "license": "许可证",
-  "devDependencies": {
-	"electron":"25.2.0",
-    "electron-builder": "^24.4.0"
-  }
+	"name": "app",
+	"version": "1.0.0",
+	"description": "描述",
+	"main": "src/main.js",
+	"scripts": {
+		"start": "electron .",
+		"xz": "electron-builder --linux tar.xz",
+		"deb": "electron-builder --linux deb",
+		"rpm": "electron-builder --linux rpm",
+		"snap": "electron-builder --linux snap",
+		"freebsd": "electron-builder --linux freebsd",
+		"appimage": "electron-builder --linux AppImage"
+	},
+	"author": {
+		"name": "作者",
+		"email": "some@example.com"
+	},
+	"license": "许可证",
+	"devDependencies": {
+		"electron-builder": "^24.6.3"
+	}
 }
