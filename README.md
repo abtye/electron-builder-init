@@ -1,23 +1,35 @@
 # 初始化
+
 ## 搭建环境
+
+> 强烈推荐用[GitPod](https://gitpod.io)
+
 ### Arch Linux
+
 ```sh
-sudo pacman -S nodejs npm git fakeroot dpkg snap fuse
+sudo pacman -Sy
+sudo pacman -S nodejs npm git fakeroot flatpak flatpak-builder elfutils dpkg snap fuse
 ```
+
 > 只能在Arch Linux上这么安装Node.js和npm
 
 ### Ubuntu
+
 ```sh
-sudo apt install git fakeroot dpkg snap fuse
+sudo apt update
+sudo apt install git fakeroot flatpak flatpak-builder elfutils snap dpkg rpm snap fuse
 ```
+
 ---
 
 ## npm
+
 ```sh
 npm i electron electron-builder --save-dev
 ```
 
 ## yarn
+
 ```sh
 yarn add --dev electron electron-builder
 ```
@@ -27,22 +39,22 @@ yarn add --dev electron electron-builder
 [Electron-Builder 官网](https://electron.build)  
 [Electron-Builder 中文网](http://electron.org.cn/builder/index.html)
 
-本次我们使用`Electron-Builder`。这个比官方推荐的`Electron-Forge`好用。  
+本次我们使用`Electron-Builder`  
 它除了`deb`和`rpm`包，还可以构建其他一些兼容的包，比如`AppImage`、`Snap`
 
-- 但是大众好像不太喜欢这些格式，建议像`Node.js`一样，把源文件压缩到`tar.xz`里发布
-- 据说`Snap`运行速度慢，包很臃肿，权限问题不好解决（根据我在 Armbian 上的体验，确实如此）
+- 据说`Snap`运行速度慢，包很臃肿，权限问题不好解决 ~~（根据我在 Armbian 上的体验，确实如此）~~
 - `Electron-Forge`也可以构建`Snap`。但我试了，失败了，报错信息和官方文档都没什么用
 - 其实[还不止这些](https://www.electron.build/configuration/linux)，但是`Flatpak`和`apk`都会出 bug
+- 也许可以有Arch Linux的软件包`tar.zst`，[Nix](https://nixos.org/manual/nix/stable/)，国产Deepin的玲珑[uab](https://linglong.dev)，等我有空再研究
 
-## 注：
+## 注
 
 - `Flatpak`类似于`Snap`
 - `apk`是安卓`Android`的软件包格式
   可以正常构建，但是无法安装，[GitHub 上](https://github.com/electron-userland/electron-builder/issues?q=apk)有人提过`Issues`了，一直没人解决，官方估计也不管了，反正我也有出过[apk 的教程](https://www.bilibili.com/video/BV1x84y1n7b5)，期待`Electron-Forge`吧
 - 我是在 `Android x86` 上测试的，没准 `ARM` 架构的手机可以运行
 
-## 它支持构建：
+## 它支持构建
 
 ### Windows
 
@@ -58,7 +70,7 @@ yarn add --dev electron electron-builder
 | ---- | -------------------- |
 | dmg  | 经典格式             |
 | pkg  | Node.js 就是这个格式 |
-| mas  |
+| mas  |                     |
 
 ### Linux
 
@@ -93,18 +105,18 @@ npm install
 
 因为 Linux 发行版众多，具体我不是非常清楚
 
-| 依赖      | 备注                 |
-| --------- | -------------------- |
-| dpkg      | 用于构建`deb`包      |
-| rpm       | 用于构建`rpm`包      |
-| snapcraft | 用于构建`snap`包     |
-| FUSE      | `AppImage`的运行依赖 |
+| 依赖           | 备注                 |
+| -------------- | ------------------- |
+| dpkg           | 用于构建`deb`包      |
+| rpm            | 用于构建`rpm`包      |
+| snap           | 用于构建`snap`包     |
+| FUSE           | `AppImage`的运行依赖 |
 
-[AppImage 安装方法](https://github.com/AppImage/AppImageKit/wiki/FUSE)
+[FUSE 安装方法](https://github.com/AppImage/AppImageKit/wiki/FUSE)
 
 # 构建配置和参数
 
-[官方文档](https://www.electron.build/cli)~（写的很烂，不如不看）~
+[官方文档](https://www.electron.build/cli)~~（写的很烂，不如不看）~~
 
 # Snap
 
@@ -154,4 +166,3 @@ snap install 应用名称.snap --dangerous
 - `Node.js`和`Bun.js`都可以正常构建
 - 如果你想测试一下`ARM`的程序能否运行，可以使用[qemu](https://qemu.org)来测试
   网上有教程，我懒得折腾，没有具体研究
-
