@@ -8,7 +8,7 @@
 
 ```sh
 sudo pacman -Sy
-sudo pacman -S nodejs npm git fakeroot dpkg snap fuse
+sudo pacman -S nodejs npm git fakeroot dpkg libcrypt-compat snap fuse
 ```
 
 > 只能在Arch Linux上这么安装Node.js和npm
@@ -62,7 +62,7 @@ yarn add --dev electron electron-builder
 | ---- | -------------------- |
 | msi  | Node.js 就是这个格式 |
 | appx | 微软商店             |
-| nsis |
+| nsis |                     |
 
 ### Mac
 
@@ -164,5 +164,5 @@ snap install 应用名称.snap --dangerous
 # 测试
 
 - `Node.js`和`Bun.js`都可以正常构建
-- 如果你想测试一下`ARM`的程序能否运行，可以使用[qemu](https://qemu.org)来测试
+- 如果你想测试一下`ARM`的程序能否运行，可以使用[qemu](https://qemu.org)来测试  
   网上有教程，我懒得折腾，没有具体研究
