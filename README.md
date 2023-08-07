@@ -1,4 +1,28 @@
-# 前言
+# 初始化
+## 搭建环境
+### Arch Linux
+```sh
+sudo pacman -S nodejs npm git fakeroot dpkg snap fuse
+```
+> 只能在Arch Linux上这么安装Node.js和npm
+
+### Ubuntu
+```sh
+sudo apt install git fakeroot dpkg snap fuse
+```
+---
+
+## npm
+```sh
+npm i electron electron-builder --save-dev
+```
+
+## yarn
+```sh
+yarn add --dev electron electron-builder
+```
+
+# 介绍
 
 [Electron-Builder 官网](https://electron.build)  
 [Electron-Builder 中文网](http://electron.org.cn/builder/index.html)
@@ -7,7 +31,7 @@
 它除了`deb`和`rpm`包，还可以构建其他一些兼容的包，比如`AppImage`、`Snap`
 
 - 但是大众好像不太喜欢这些格式，建议像`Node.js`一样，把源文件压缩到`tar.xz`里发布
-- 据说`Snap`运行速度慢，包很臃肿，权限问题不好解决~（根据我在 Armbian 上的体验，确实如此）~
+- 据说`Snap`运行速度慢，包很臃肿，权限问题不好解决（根据我在 Armbian 上的体验，确实如此）
 - `Electron-Forge`也可以构建`Snap`。但我试了，失败了，报错信息和官方文档都没什么用
 - 其实[还不止这些](https://www.electron.build/configuration/linux)，但是`Flatpak`和`apk`都会出 bug
 
@@ -110,15 +134,13 @@ snap install 应用名称.snap --dangerous
 3. 如果提示权限不够，就运行`chmod +x 应用名称.AppImage`
 4. 缺什么包就装什么，顺便跟我说一声
 
-# 跨芯片架构和平台
+# 跨芯片架构
 
 - 可以在`x86`架构上构建[ARM](https://www.arm.com/)架构的包
 - 支持的芯片架构：`x64` `ia32` `armv7l` `arm64`
 - 用法：加上芯片架构参数，如：
   `electron-builder --linux deb --arm64`
-- 也可以在`Windows`上构建`Linux`包，在`Linux`上构建`Windows`包
-- 但是实际跨平台构建的感受非常糟糕，`Linux`上要安装[Wine](https://www.winehq.org/)，`Windows`上估计要`WSL`
-- 我尝试在`Linux`上构建`Windows`包，失败了
+- **不能跨操作系统构建**
 
 # 图标
 
