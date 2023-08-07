@@ -8,7 +8,7 @@
 
 ```sh
 sudo pacman -Sy
-sudo pacman -S nodejs npm git fakeroot flatpak flatpak-builder elfutils dpkg snap fuse
+sudo pacman -S nodejs npm git fakeroot dpkg snap fuse
 ```
 
 > 只能在Arch Linux上这么安装Node.js和npm
@@ -17,7 +17,7 @@ sudo pacman -S nodejs npm git fakeroot flatpak flatpak-builder elfutils dpkg sna
 
 ```sh
 sudo apt update
-sudo apt install git fakeroot flatpak flatpak-builder elfutils snap dpkg rpm snap fuse
+sudo apt install git fakeroot snap dpkg rpm snap fuse
 ```
 
 ---
