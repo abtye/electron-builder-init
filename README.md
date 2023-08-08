@@ -8,7 +8,7 @@
 
 ```sh
 sudo pacman -Sy
-sudo pacman -S nodejs npm git fakeroot dpkg libxcrypt-compat snap fuse
+sudo pacman -S nodejs npm git fakeroot dpkg libxcrypt-compat fuse
 ```
 
 > 只能在Arch Linux上这么安装Node.js和npm
@@ -17,7 +17,7 @@ sudo pacman -S nodejs npm git fakeroot dpkg libxcrypt-compat snap fuse
 
 ```sh
 sudo apt update
-sudo apt install git fakeroot snap dpkg rpm snap fuse
+sudo apt install git fakeroot snapd dpkg rpm fuse
 ```
 
 ---
