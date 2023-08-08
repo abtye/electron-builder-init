@@ -8,7 +8,7 @@
 
 ```sh
 sudo pacman -Sy
-sudo pacman -S nodejs npm git fakeroot dpkg rpm libxcrypt-compat fuse
+sudo pacman -S nodejs npm git fakeroot dpkg rpm libxcrypt-compat flatpak flatpak-builder elfutils fuse
 ```
 
 > 只能在Arch Linux上这么安装Node.js和npm
@@ -17,7 +17,7 @@ sudo pacman -S nodejs npm git fakeroot dpkg rpm libxcrypt-compat fuse
 
 ```sh
 sudo apt update
-sudo apt install git fakeroot snapd dpkg rpm fuse
+sudo apt install git fakeroot snapd dpkg flatpak flatpak-builder elfutils rpm fuse
 ```
 
 ---
@@ -80,6 +80,7 @@ yarn add --dev electron electron-builder
 | rpm                               | 适用于 Fedora，RedHat 等 |
 | [Snap](https://snapcraft.io/)     |                          |
 | [AppImage](https://appimage.org/) |                          |
+| [Flatpak](https://flatpak.org/) |                          |
 
 ## 其他
 
@@ -111,6 +112,8 @@ npm install
 | rpm            | 用于构建`rpm`包      |
 | snap           | 用于构建`snap`包     |
 | FUSE           | `AppImage`的运行依赖 |
+| flatpak        | 用于构建`flatpak`包  |
+| flatpak-builder | 用于构建`flatpak`包 |
 
 [FUSE 安装方法](https://github.com/AppImage/AppImageKit/wiki/FUSE)
 
@@ -136,8 +139,22 @@ snap install 应用名称.snap --dangerous
 
 # Flatpak
 
-- `Electron-Forge`和`Electron-Builder`原本都支持构建`Flatpak`，但我都出 bug 了
-- Flatpak 官方也有[文档](https://docs.flatpak.org/en/latest/electron.html)，但我按文档的做却失败了
+```sh
+# 安装开发依赖
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install org.freedesktop.Platform/x86_64/20.08
+sudo flatpak install org.freedesktop.Sdk/x86_64/20.08
+sudo flatpak install org.electronjs.Electron2.BaseApp/x86_64/20.08
+```
+
+如果报错，要获取更多信息可以这么做：
+```sh
+npm i -g electron-builder
+# 要先全局安装Electron-Builder才能执行下面这行命令
+env DEBUG="@malept/flatpak-bundler" electron-builder build --linux flatpak
+```
+
+> Flatpak 官方的[文档](https://docs.flatpak.org/en/latest/electron.html)，和这个略有不同
 
 # 运行 AppImage
 

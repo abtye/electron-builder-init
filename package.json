@@ -9,6 +9,7 @@
 		"deb": "electron-builder --linux deb",
 		"rpm": "electron-builder --linux rpm",
 		"snap": "electron-builder --linux snap",
+		"flatpak": "electron-builder --linux flatpak",
 		"freebsd": "electron-builder --linux freebsd",
 		"appimage": "electron-builder --linux AppImage"
 	},
